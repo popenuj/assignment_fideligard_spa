@@ -1,0 +1,18 @@
+<div class="row" ng-controller="datePickerCtrl">
+  <div class="col-xs-12 text-center">
+    <h4 ng-show="!dayInput" ng-click="dayInput = !dayInput" id="pointable">{{ currentDate.date | date }}</h4>
+    <div ng-show="dayInput">
+      <input type="date" ng-model="dateSelection" min="2016-08-01" max="2017-01-30">
+      <a ng-click="currentDate.changeByDropdown(dateSelection); dayInput = !dayInput" id="pointable">Select Date</a>
+    </div>
+  </div>
+  <div class="col-xs-2">
+    {{ endDate | date }}
+  </div>
+  <div class="col-xs-8">
+    <input type="range" ng-change="currentDate.changeByRange(slide)" ng-model="slide" min="-15681600000" max="0" step="86400000" width= "100%">
+  </div>
+  <div class="col-xs-2">
+    {{ startDate | date }}
+  </div>
+</div>

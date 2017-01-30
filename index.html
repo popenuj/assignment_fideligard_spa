@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="Fideligard">
+  <head>
+    <meta charset="utf-8">
+    <title>Fideligard Stock Portfolio</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap Javascript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <!-- UI Router -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <navbar></navbar>
+    <div class="container">
+      <date-range></date-range>
+    </div>
+  </body>
+
+  <!-- scripts -->
+  <script src="/js/app.js"></script>
+
+  <!-- controllers -->
+  <script src="/js/controllers/datePickerCtrl.js"></script>
+
+  <!-- directives -->
+  <script src="/js/directives/navbar.js"></script>
+  <script src="/js/directives/dateRange.js"></script>
+
+  <!-- services -->
+  <script src="/js/services/dateService.js"></script>
+
+</html>
