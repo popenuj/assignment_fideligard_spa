@@ -4,6 +4,7 @@ Fideligard.controller('datePickerCtrl',
     $scope.endDate = dateService.endDate;
     $scope.startDate = dateService.startDate;
     $scope.currentDate = dateService.currentDate;
+    $scope.oneDay = dateService.oneDay;
 
   }]
 )

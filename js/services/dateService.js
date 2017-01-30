@@ -16,7 +16,8 @@ Fideligard.factory('dateService', [
     return {
       currentDate: currentDate,
       startDate: startDate,
-      endDate: endDate
+      endDate: endDate,
+      oneDay: oneDay
     }
   }]
 )
