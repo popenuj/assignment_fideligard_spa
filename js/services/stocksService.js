@@ -1,12 +1,12 @@
-Fideligard.factory('stocksService', [ "$http",
-  function($http){
-    var _start = "2016-06-20"
-    var _end = "2016-12-19"
+Fideligard.factory('stocksService', [ "$http", "dateService",
+  function($http, dateService){
+    var _start = dateService.endDate.formatDate()
+    var _end = dateService.startDate.formatDate()
 
   var obtainStocks = function(){
       return $http({
         method: "GET",
-        url: urlBuilder(["AAPL", "YAOO", "GOOG", "MSFT"]),
+        url: urlBuilder(["AAPL", "YHOO", "GOOG", "MSFT"]),
         success: function(response){return response},
         failire: function(response){console.log(response)}
       })

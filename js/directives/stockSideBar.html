@@ -9,13 +9,16 @@
         <th>30 day</th>
       </thead>
       <tbody>
-        <tr ng-repeat="stock in stockData">
+        <tr ng-repeat="stock in currentDaysStocks">
           <td>{{stock.Symbol}}</td>
-          <td>{{stock.Close | limitTo : 6}}</td>
-          <td>{{stock.Close - stock.Open | limitTo : 6}}</td>
+          <td>{{stock.Close | currency }}</td>
+          <td>{{stock.Close}}</td>
           <td>{{stock.Date}}</td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div class="col-xs-8">
+    {{currentDaysStocks}}
   </div>
 </div>
