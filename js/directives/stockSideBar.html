@@ -1,27 +1,25 @@
-<div class="row">
-  <div class="col-xs-5" ng-controller="stocksCtrl">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <input type="text" ng-model="companyFilter" class="form-control" placeholder="SYMBL">
-        <table class="table table-striped">
-          <thead>
-            <th ng-click="orderSelection = 'Symbol'; reverseOrder = !reverseOrder" class="pointable">Symbol</th>
-            <th ng-click="orderSelection = 'Price'" class="pointable">Price</th>
-            <th ng-click="orderSelection = 'oneDay'; reverseOrder = !reverseOrder" class="pointable">1 day</th>
-            <th ng-click="orderSelection = 'sevenDay'; reverseOrder = !reverseOrder" class="pointable">7 day</th>
-            <th ng-click="orderSelection = 'thirtyDay'; reverseOrder = !reverseOrder" class="pointable">30 day</th>
-          </thead>
-          <tbody>
-            <tr ng-repeat="stock in currentDaysStocks | orderBy:orderSelection:!reverseOrder | filter:companyFilter">
-              <td><small>{{stock.Symbol}}</small></td>
-              <td><small>{{stock.Close | currency }}</small></td>
-              <td><small>{{stock.oneDay | currency }}</small></td>
-              <td><small>{{stock.sevenDay | currency }}</small></td>
-              <td><small>{{stock.thirtyDay | currency }}</small></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="col-xs-5" ng-controller="stocksCtrl">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <input type="text" ng-model="companyFilter" class="form-control" placeholder="SYMBL">
+      <table class="table table-striped">
+        <thead>
+          <th ng-click="orderSelection = 'Symbol'; reverseOrder = !reverseOrder" class="pointable">Symbol</th>
+          <th ng-click="orderSelection = 'Price'" class="pointable">Price</th>
+          <th ng-click="orderSelection = 'oneDay'; reverseOrder = !reverseOrder" class="pointable">1 day</th>
+          <th ng-click="orderSelection = 'sevenDay'; reverseOrder = !reverseOrder" class="pointable">7 day</th>
+          <th ng-click="orderSelection = 'thirtyDay'; reverseOrder = !reverseOrder" class="pointable">30 day</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="stock in currentDaysStocks | orderBy:orderSelection:!reverseOrder | filter:companyFilter">
+            <td><small>{{stock.Symbol}}</small></td>
+            <td><small>{{stock.Close | currency }}</small></td>
+            <td><small>{{stock.oneDay | currency }}</small></td>
+            <td><small>{{stock.sevenDay | currency }}</small></td>
+            <td><small>{{stock.thirtyDay | currency }}</small></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

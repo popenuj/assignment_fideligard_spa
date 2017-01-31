@@ -19,11 +19,12 @@
     <div class="container">
       <navbar></navbar>
       <date-range></date-range>
-      <stock-side-bar></stock-side-bar>
-    </div>
-    <div class="row">
-      <div class="col-xs-7">
-        <ui-view></ui-view>
+      <div class="row">
+        <stock-side-bar></stock-side-bar>
+        <div class="col-xs-7">
+          <div ui-view></div>
+        </div>
+      </div>
       </div>
     </div>
   </body>
@@ -38,6 +39,7 @@
   <!-- controllers -->
   <script src="/js/controllers/datePickerCtrl.js"></script>
   <script src="/js/controllers/stocksCtrl.js"></script>
+  <script src="/js/controllers/tradeCtrl.js"></script>
 
   <!-- directives -->
   <script src="/js/directives/navbar.js"></script>
