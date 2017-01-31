@@ -23,12 +23,28 @@ Fideligard.controller("stocksCtrl", ["$scope", "stocksService", "dateService",
       $scope.currentDaysStocks = [];
       var day = dateService.currentDate.formatDate()
       for (company in $scope.stocks) {
-        $scope.currentDaysStocks.push($scope.stocks[company][day])
+        stockData = $scope.stocks[company][day]
+        stockData.oneDay = stockData.Close - getStockFromDaysAgo(1, company);
+        stockData.sevenDay = stockData.Close - getStockFromDaysAgo(7, company);
+        stockData.thirtyDay = stockData.Close - getStockFromDaysAgo(30, company);
+        $scope.currentDaysStocks.push(stockData)
+      }
+    }
+
+    var getStockFromDaysAgo = function(days, symbol) {
+      var day = dateService.formatDate(dateService.currentDate.date - (days * dateService.oneDay));
+      for (company in $scope.stocks) {
+        var c = $scope.stocks[company][day]
+        if (c) {
+          if (c.Symbol === symbol) {
+            return c.Open
+          }
+        }
       }
     }
 
     $scope.$watch("currentDate.date", function() {
-      getCurrentStocks()
+      getCurrentStocks();
     })
 
   }]

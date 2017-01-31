@@ -6,18 +6,13 @@ Fideligard.factory('stocksService', [ "$http", "dateService",
   var obtainStocks = function(){
       return $http({
         method: "GET",
-        url: urlBuilder(["AAPL", "YHOO", "GOOG", "MSFT"]),
+        url: _urlBuilder(["AAPL", "YHOO", "GOOG", "MSFT"]),
         success: function(response){return response},
         failire: function(response){console.log(response)}
       })
     }
 
-  var sanitizeStocks = function(response){
-    //for each stock, generate the 30d, 7d, 1d prices
-    //and populate the object with them
-  }
-
-  var urlBuilder = function(companyArray) {
+  var _urlBuilder = function(companyArray) {
     var companyString = "'" + companyArray.join("','") + "'";
     var startDate = _start.replace(/-/g, '/');
     var endDate = _end.replace(/-/g, '/');
@@ -32,7 +27,6 @@ Fideligard.factory('stocksService', [ "$http", "dateService",
               '&env=store://datatables.org/alltableswithkeys ' +
               '&callback=';
   };
-
 
   return {
     obtainStocks: obtainStocks

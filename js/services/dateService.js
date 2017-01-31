@@ -1,8 +1,12 @@
 Fideligard.factory('dateService', [
   function(){
 
-    var formatDate = function() {
-      var d = new Date(this.date),
+    var formatDate = function(date) {
+      if (date) {
+        var d = new Date(date)
+      } else {
+        var d = new Date(this.date)
+      }
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
       year = d.getFullYear();
@@ -39,7 +43,8 @@ Fideligard.factory('dateService', [
       currentDate: currentDate,
       startDate: startDate,
       endDate: endDate,
-      oneDay: oneDay
+      oneDay: oneDay,
+      formatDate: formatDate
     }
   }]
 )
