@@ -13,11 +13,11 @@
           </thead>
           <tbody>
             <tr ng-repeat="stock in currentDaysStocks | orderBy:orderSelection:!reverseOrder | filter:companyFilter">
-              <td>{{stock.Symbol}}</td>
-              <td>{{stock.Close | currency }}</td>
-              <td>{{stock.oneDay | currency }}</td>
-              <td>{{stock.sevenDay | currency }}</td>
-              <td>{{stock.thirtyDay | currency }}</td>
+              <td><small>{{stock.Symbol}}</small></td>
+              <td><small>{{stock.Close | currency }}</small></td>
+              <td><small>{{stock.oneDay | currency }}</small></td>
+              <td><small>{{stock.sevenDay | currency }}</small></td>
+              <td><small>{{stock.thirtyDay | currency }}</small></td>
             </tr>
           </tbody>
         </table>
