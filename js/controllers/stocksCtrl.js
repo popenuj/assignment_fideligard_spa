@@ -1,23 +1,9 @@
-Fideligard.controller("stocksCtrl", ["$scope", "stocksService", "dateService",
-  function($scope, stocksService, dateService) {
+Fideligard.controller("stocksCtrl", ["$scope", "stocksService", "dateService", "stocks",
+  function($scope, stocksService, dateService, stocks) {
 
-    $scope.stocks;
+    $scope.stocks = stocks
 
     $scope.currentDate = dateService.currentDate;
-
-    stocksService.obtainStocks().then(function(response) {
-      var stockData = response.data.query.results.quote
-      var stocks = {};
-      for (var i = 0; i < stockData.length; i++) {
-        var companyName = stockData[i].Symbol
-        if (!stocks[companyName]) {
-          stocks[companyName] = {};
-        }
-        stocks[companyName][(stockData[i].Date)] = stockData[i]
-      }
-      $scope.stocks = stocks
-      getCurrentStocks();
-    });
 
     var getCurrentStocks = function() {
       $scope.currentDaysStocks = [];
