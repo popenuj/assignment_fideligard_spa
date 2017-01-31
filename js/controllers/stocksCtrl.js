@@ -23,26 +23,24 @@ Fideligard.controller("stocksCtrl", ["$scope", "stocksService", "dateService",
       $scope.currentDaysStocks = [];
       var day = dateService.currentDate.formatDate()
       for (company in $scope.stocks) {
-        stockData = $scope.stocks[company][day]
-        stockData.oneDay = stockData.Close - getStockFromDaysAgo(1, company);
-        stockData.sevenDay = stockData.Close - getStockFromDaysAgo(7, company);
-        stockData.thirtyDay = stockData.Close - getStockFromDaysAgo(30, company);
+        stockData = getStockFromDaysAgo(0, company)
+        stockData.oneDay = stockData.Close - getStockFromDaysAgo(1, company).Close;
+        stockData.sevenDay = stockData.Close - getStockFromDaysAgo(7, company).Close;
+        stockData.thirtyDay = stockData.Close - getStockFromDaysAgo(30, company).Close;
         $scope.currentDaysStocks.push(stockData)
       }
     }
 
     var getStockFromDaysAgo = function(days, symbol) {
-      var day = dateService.formatDate(dateService.currentDate.date - (days * dateService.oneDay));
-      for (company in $scope.stocks) {
-        var c = $scope.stocks[company][day]
-        if (c) {
-          if (c.Symbol === symbol) {
-            return c.Open
-          } else if (day > dateService.endDate.date) {
-            getStockFromDaysAgo((days + 1), symbol)
-            // TODO: get recursive call to actually return number, I don't know what is happening to it. The recursion works like it is supposed to but ends up returning undefined
-          }
-        }
+      var formattedDay = dateService.formatDate(dateService.currentDate.date - (days * dateService.oneDay));
+      var day = dateService.currentDate.date - (days * dateService.oneDay)
+      var c = $scope.stocks[symbol][formattedDay]
+      if (c) {
+        return c
+      } else if (day > dateService.endDate.date) {
+        return getStockFromDaysAgo((days + 1), symbol)
+      } else {
+        return
       }
     }
 
