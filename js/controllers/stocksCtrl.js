@@ -38,6 +38,9 @@ Fideligard.controller("stocksCtrl", ["$scope", "stocksService", "dateService",
         if (c) {
           if (c.Symbol === symbol) {
             return c.Open
+          } else if (day > dateService.endDate.date) {
+            getStockFromDaysAgo((days + 1), symbol)
+            // TODO: get recursive call to actually return number, I don't know what is happening to it. The recursion works like it is supposed to but ends up returning undefined
           }
         }
       }
