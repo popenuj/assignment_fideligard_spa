@@ -3,10 +3,10 @@
     <h3>Trade</h3>
   </div>
   <div class="panel-body">
-    <select value="AAPL" ng-model="selection" ng-options="stock.Symbol as stock.Symbol for stock in currentDaysStocks"></select>
+    <select ng-model="selection" ng-options="stock.Symbol as stock.Symbol for stock in currentDaysStocks"></select>
     <div class="row">
       <div class="col-xs-6">
-        <div ng-repeat="stock in currentDaysStocks | filter:selection || 'AAPL'">
+        <div ng-repeat="stock in currentDaysStocks | filter:selection">
           <form class="form-group">
             Buy/Sell: <select class="form-control">
               <option>Buy</option>
