@@ -8,7 +8,7 @@ Fideligard.controller("stocksCtrl", ["$scope", "stocksService", "dateService", "
     var getCurrentStocks = function() {
       $scope.currentDaysStocks = [];
       var day = dateService.currentDate.formatDate()
-      for (company in $scope.stocks) {
+      for (var company in $scope.stocks) {
         stockData = getStockFromDaysAgo(0, company)
         stockData.oneDay = stockData.Close - setHistoricalStock(1, company)
         stockData.sevenDay = stockData.Close - setHistoricalStock(7, company)

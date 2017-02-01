@@ -2,7 +2,7 @@ var Fideligard = angular.module("Fideligard", ["ui.router"]);
 
 Fideligard.config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/stocks')
+  $urlRouterProvider.otherwise('/stocks/trades')
 
   $stateProvider
     .state('stocks', {
@@ -17,7 +17,7 @@ Fideligard.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('stocks.trades', {
       url: '/trades',
-      templateUrl: "partials/trades.html",
+      template: "<trades></trades>",
       controller: 'tradeCtrl'
     })
     .state('stocks.portfolio', {

@@ -23,12 +23,12 @@
         </th>
       </thead>
       <tbody>
-        <tr ng-repeat="trade in allTransactions | filter:transactionFilter">
-          <td>{{trade.date}}</td>
-          <td>{{trade.symbol}}</td>
-          <td>{{trade.type}}</td>
+        <tr ng-repeat="trade in trades | filter:transactionFilter">
+          <td>{{trade.stock.Date}}</td>
+          <td>{{trade.stock.Symbol}}</td>
+          <td>{{trade.buyOrSell}}</td>
           <td>{{trade.quantity}}</td>
-          <td>{{trade.price}}</td>
+          <td>{{trade.totalPrice | currency}}</td>
         </tr>
       </tbody>
     </table>
